@@ -1,0 +1,305 @@
+body{
+  font-family: "Prompt", sans-serif;
+  background-image: url(images/presentations-background-3D-model_0.jpg);
+  background-size: cover;
+}
+/*CSS WIREFRAME*/
+.nav-wrapper {
+  max-width: 1200px; /**//*set how wide to be*/
+  margin: auto; 
+  padding: 15px 20px; /* for 2 values top+buttom and right+left */
+  margin-top: 30px; /*space left on top*/
+  display: grid; /*make a grid*/
+  grid-template-columns: 30% auto; /*select how collumns are split accross the area*/
+  
+}
+
+.nav-wrapper ul li {
+  display: inline; /*arrange al elements of the list in a single line*/
+  list-style-type: none; /*bullets (dots) go away from the list*/
+}
+
+.main-wrapper {
+max-width: 1200px;
+margin: auto;
+}
+
+.nav-wrapper a {
+  letter-spacing: .1em;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.nav-wrapper a:hover{
+  cursor: pointer;
+  color: #a3a3a3;
+}
+
+.list-item {
+  margin-left:  10px;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+.wrapper > .featured,
+.wrapper > .sub-featured > div,
+.wrapper > .main-content,
+.wrapper > .main-sidebar {
+  padding: 20px;
+  /*from .wrapper select .featured, divs from .sub-featured , .main contet and amin-sidebar and apply those rules*/
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 24px;
+  
+}
+
+.wrapper{
+  max-width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);/*repeat 3 timmes, fr is a spit (if the area is split 12 times, 1fr is  1/12 of that)*/
+  grid-gap: 10px; /*space between grid cells*/
+  grid-template-areas: 
+  "featuredMain featuredMain featuredSub"
+  "contentMain contentMain contentSub" ;/*tells how the areas are arranged */
+}
+
+.featured {
+  grid-area: featuredMain; /*name f the area in the grid*/
+  min-height: 500px;
+  background-color: blueviolet;
+  display: grid;
+  align-content: flex-end; /*contents of . feature will shift down*/
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.85)) 
+  /*red,green,blue,alpfa channel(transparency)*/
+  /*liner-gradient: apply a color cover that changes from up to down*/
+  /*in this case: upper part more transparent, down get more black*/
+  border-box, url(https://source.unsplash.com/1024x720/?music)
+  no-repeat center center;
+  color: white;
+}
+/*eggect for zooming*/
+.zoom {
+  transition: transform .2s; /* Animation */
+}
+
+.zoom:hover {
+  transform: scale(1.03); /* (x% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+/*Effect for zooming*/
+
+.main-content, .featured,  .sub-featured > div, .main-sidebar{
+  box-shadow: 0 4px rgba(0,0,0,.2);/*shadow: from left-right , up-down, color*/
+}
+
+
+.featured > h1{
+  font-size:  42px;
+  max-width: 650 px;
+}
+
+.sub-featured{
+  grid-area: featuredSub;
+  background-color: rgba(255,255,255,.15);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+.sub-featured h3{
+  margin-top: 0;
+  color: #eeeeee;
+  font-weight: lighter;
+}
+
+
+
+.sub1 {
+  background-color: darkgreen; 
+  background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.05)) 
+  border-box, url(https://source.unsplash.com/512x360/?animals)
+  no-repeat center center;
+}
+  
+.sub2 {
+  background-color: darkgreen;
+  background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.05)) 
+  border-box, url(https://source.unsplash.com/512x360/?women)
+  no-repeat center center;
+  background-size: cover;
+}
+  
+.sub3 {
+  background-color: darkgreen;
+  background: linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.05)) 
+  border-box, url(https://source.unsplash.com/512x360/?sports)
+  no-repeat center center;
+}
+  
+
+.main-content{
+  grid-area: contentMain;
+  background-color: rgba(255,255,255,.15);
+  color: #444444;
+}
+
+
+.main-sidebar {
+  grid-area: contentSub;
+  background-color: rgba(255,255,255,.15);
+  color: #444444;
+  line-height: 1.5em;
+}
+
+.burger-icon{
+  display: none;
+}
+
+.footer {
+  display: grid;
+  margin: auto;/* will be placed in cernter*/
+  grid-template-columns: 
+  1fr 1fr 1fr 1fr;
+  /*4 collumns with min width of 20 px and max width of 300px*/
+  justify-content: center;
+  grid-template-rows: 2fr 1fr ;
+  background: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.85)) 
+  border-box, url(https://source.unsplash.com/2048x1080/?space)
+  no-repeat center center;
+  color: #ffffff;
+  background-size: cover;
+}
+
+.footer > div  {
+  padding: 20px;
+}
+
+.copyright{
+  max-width: 1200px;
+  margin: auto;
+  padding :20px;
+  grid-column:  1/-1;
+}
+
+/* TABLET MEDIA QUERY*/
+
+@media screen and (max-width: 950px/*no ; here!*/)/*the breakpoint betxeen tablet and pc preset*/{
+  .wrapper{
+    grid-template-areas: 
+    "featuredMain featuredMain featuredMain"
+    "featuredSub featuredSub featuredSub"
+    "contentMain contentMain contentSub";
+    /*Only wrappers layout is modified in tablet mode*/
+  }
+
+  .sub-featured{
+    grid-template-columns: repeat(3, 1fr);/*make feature sub in 3 collumns+1row*/
+  }
+  /*Now the logo must be above the menu*/
+
+/*before the 1st col was 30 % the 2nd is the rest. Now they will need to span all screen*/
+
+  .nav-items {
+    grid-column: 1 / 5;/*the menu will beghin from col 1 to col5 (from the start to the end of the page)*/
+    text-align: center;
+    /**/
+  }
+
+  .logo{
+    grid-column: 1 / 5 ;
+    text-align: center;/*same as the menu*/
+    margin-top: 0;
+  }
+}
+
+
+/* MOBILE MEDIA QUERY*/
+
+@media screen and ( max-width:690px /* AGAIN NO ;*/){
+  .logo{
+    grid-column: 1/3;
+  }
+
+  .nav-items{
+    grid-column: 1/5 ;
+    text-align: center;
+
+    
+  }
+
+  .nav-wrapper ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-wrapper ul li {
+    display: block;
+  }
+
+  .burger-icon {
+    display: inline-block;
+    justify-self: end; /*moves content at the end of the area*/
+    grid-column: 4 / 5 ;
+    border: 2px solid #333333; /*set border wth width , style, color*/
+    color: #333333;
+    padding: 5px 10px;
+    font-weight: bold; /*style of the font*/
+    border-radius: 2px; /*corves the edges of the border with Xpx*/
+  }
+
+  .burger-icon:hover{/*when i hover over the menu  hand appaers*/
+    cursor:pointer;
+  }
+
+  .wrapper{
+    grid-template-areas: 
+    "featuredMain featuredMain featuredMain"
+    "contentMain contentMain contentMain"
+    "featuredSub featuredSub featuredSub"
+    "contentSub contentSub contentSub";
+  }
+
+  .sub-featured{
+    grid-template-columns: 1fr;
+  }
+
+  .footer > div/*we select all div in the footer > descended*/{
+    grid-column: 1/-1; /*from the begining to end -1 is like the 1st one starting from the end*/;
+
+  }
+ 
+ .featured h1 {
+   font-size: 30px;
+ } 
+
+ .mobile-show{ /*if added the element will show*/
+   /*display: block;*/
+
+   /*visibility: visible;*/
+   /*opacity: 1;*/
+   /*height: auto;
+   transition: all 2s linear ;*/
+   
+ }
+
+ .mobile-hide{ /*if added the element will dissapear*/
+   /*display: none;*/
+   /*height: 0px; */
+    /*visibility: hidden;*/
+    /*opacity: 0;*/
+    
+    /*transition: all 0.5s linear ;*/
+ }
+
+ /*.expandable {
+  transform: translateY(-0em);
+  transition: all 0.3s ease-in-out;
+ }*/
+
+}
+
+/* untill now this is a CSS WIREFRAME*/
