@@ -65,6 +65,7 @@ body {
   grid-gap: 10px; /*space between grid cells*/
   grid-template-areas:
     "featuredMain featuredMain featuredSub"
+    "featuredNew featuredNew featuredNew"
     "contentMain contentMain contentSub"; /*tells how the areas are arranged */
 }
 
@@ -115,10 +116,34 @@ body {
   grid-gap: 10px;
 }
 
+.new-featured {
+  min-height: 300px;
+  grid-area: featuredNew;
+  background-color: rgba(255, 255, 255, 0.15);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  grid-template-rows: 2fr;
+  grid-gap: 10px;
+}
+
 .sub-featured h3 {
   margin-top: 0;
   color: #eeeeee;
   font-weight: lighter;
+}
+
+.new-featured h3 {
+  margin-top: 0;
+  color: #eeeeee;
+  font-weight: lighter;
+}
+
+.new1 {
+  background-color: darkgreen;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.05))
+      border-box,
+    url(https://source.unsplash.com/512x360/?animals) no-repeat center center;
 }
 
 .sub1 {
@@ -257,6 +282,10 @@ body {
 
   .wrapper {
     grid-template-areas:
+      /* "featuredMain featuredMain featuredMain"
+      "contentMain contentMain contentMain"
+      "featuredSub featuredSub featuredSub"
+      "contentSub contentSub contentSub"; */
       "featuredMain featuredMain featuredMain"
       "contentMain contentMain contentMain"
       "featuredSub featuredSub featuredSub"
