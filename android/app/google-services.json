@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "261142715478",
+    "project_id": "uwin-develop-d6298",
+    "storage_bucket": "uwin-develop-d6298.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:261142715478:android:331351659338642822eff7",
+        "android_client_info": {
+          "package_name": "com.example.uwin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "261142715478-764qva9cedshmu6vmj9e9vl8bqu18dj5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOYwzJ3bjTo5FU7RVbFYwflRt-LxNjkgs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "261142715478-764qva9cedshmu6vmj9e9vl8bqu18dj5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
