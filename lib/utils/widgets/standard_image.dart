@@ -46,6 +46,7 @@ class StandardImage extends StatelessWidget {
                   ? 16 / 9
                   : 4 / 5,
               child: FadeInImage.assetNetwork(
+                fadeOutDuration: Duration(milliseconds: 3),
                 placeholder: imageOrientation == ImageOrientation.LANDSCAPE
                     ? 'assets/placeHolders/image_placeholder_landscape.png'
                     : 'assets/placeHolders/image_placeholder_portrait.png',
