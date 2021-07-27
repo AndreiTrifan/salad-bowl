@@ -8,8 +8,7 @@ double getTextHeight(String text, TextStyle style, double textScaleFactor) {
 
     Aceasta functie cere textul dintr-un widget Text, si style-ul pe care il 
     foloseste, si returneaza inaltimea acestuia, folosindu-se de TextPainter. 
-    Se ia in considerare si o variabila de tip double pe nume textScaleFactor, 
-    care se foloseste dinamic in return statement.
+    Se ia in considerare si o variabila de tip double pe nume textScaleFactor
 
     Aceasta functie poate fi si adaptata ca sa returneze si latimea textului, 
     trebuie doar specificat la functia de return (si sa se schimbe si 
