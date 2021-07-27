@@ -34,12 +34,8 @@ class _HomeScreenState extends State<HomeScreen> {
       case 0:
         {
           return Center(
-              // child: Text('Coupons'),
-              child: StandardImage(
-            url:
-                'https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/test.png',
-            imageOrientation: ImageOrientation.PORTRAIT,
-          ));
+            child: Text('Coupons'),
+          );
         }
       case 1:
         {

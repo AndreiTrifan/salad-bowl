@@ -21,12 +21,12 @@ class StandardImage extends StatelessWidget {
       call.
     */
   StandardImage(
-      {required this.url,
+      {this.url = '',
       this.imageOrientation = ImageOrientation.LANDSCAPE,
       this.width,
       this.height,
       this.fit = BoxFit.scaleDown});
-  final String url;
+  final String? url;
   final ImageOrientation imageOrientation; //DEFAULT VALUE IS LANDSCAPE
   late double? width;
   late double? height;
@@ -34,6 +34,7 @@ class StandardImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (url == null || url!.isEmpty) return _PlaceHolderWidget();
     width = MediaQuery.of(context).size.width;
     height = imageOrientation == ImageOrientation.LANDSCAPE
         ? width! * 9 / 16
@@ -46,37 +47,41 @@ class StandardImage extends StatelessWidget {
           borderRadius: BorderRadius.all(
             Radius.circular(StandardCornerRadius.radius),
           )),
-      child: Uri.tryParse(url)?.hasAbsolutePath ?? false //CHECK IF WEB LINK
+      child: Uri.tryParse(url!)?.hasAbsolutePath ?? false //CHECK IF WEB LINK
           ? FadeInImage.assetNetwork(
               fadeOutDuration: Duration(milliseconds: 3),
               placeholder: imageOrientation == ImageOrientation.LANDSCAPE
                   ? 'assets/placeHolders/image_placeholder_landscape.png'
                   : 'assets/placeHolders/image_placeholder_portrait.png',
-              image: url,
+              image: url!,
               //IF IMAGE DOES NOT LOAD THEN RETURN PLACEHOLDER IMAGE
               imageErrorBuilder: (BuildContext context, Object exception,
                   StackTrace? stackTrace) {
-                return imageOrientation == ImageOrientation.LANDSCAPE
-                    ? Image(
-                        image: AssetImage(
-                            'assets/placeHolders/image_placeholder_landscape.png'))
-                    : Image(
-                        image: AssetImage(
-                            'assets/placeHolders/image_placeholder_portrait.png'));
+                return _PlaceHolderWidget();
               })
+          //IF CACHED IMAGE
           : Image(
-              image: AssetImage(url),
+              image: AssetImage(url!),
               errorBuilder: (BuildContext context, Object exception,
                   StackTrace? stackTrace) {
-                return imageOrientation == ImageOrientation.LANDSCAPE
-                    ? Image(
-                        image: AssetImage(
-                            'assets/placeHolders/image_placeholder_landscape.png'))
-                    : Image(
-                        image: AssetImage(
-                            'assets/placeHolders/image_placeholder_portrait.png'));
+                return _PlaceHolderWidget();
               },
             ),
     );
+  }
+}
+
+class _PlaceHolderWidget extends StatelessWidget {
+  const _PlaceHolderWidget({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(
+            color: Colors.grey[350],
+            borderRadius: BorderRadius.all(
+              Radius.circular(StandardCornerRadius.radius),
+            )),
+        child: StandardImage(url: "assets/placeHolders/image_placeholder.png"));
   }
 }
