@@ -20,9 +20,10 @@ class StandardImage extends StatelessWidget {
       which finally renders the picture at the URL provided in the function 
       call.
     */
-  const StandardImage({required this.url, required this.imageOrientation});
+  StandardImage(
+      {required this.url, this.imageOrientation = ImageOrientation.LANDSCAPE});
   final String url;
-  final ImageOrientation imageOrientation;
+  final ImageOrientation imageOrientation; //DEFAULT VALUE IS LANDSCAPE
 
   @override
   Widget build(BuildContext context) {
