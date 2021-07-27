@@ -2,7 +2,9 @@ import 'package:async_redux/async_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_for_redux/provider_for_redux.dart';
 import 'package:u_win/redux/app_state.dart';
+import 'package:u_win/utils/constants.dart';
 import 'package:u_win/utils/widgets/nav_bar.dart';
+import 'package:u_win/utils/widgets/standard_image.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -32,22 +34,26 @@ class _HomeScreenState extends State<HomeScreen> {
       case 0:
         {
           return Center(
-            child: Text('Coupons'),
-          );
+              // child: Text('Coupons'),
+              child: StandardImage(
+            url:
+                'https://cpmr-islands.org/wp-content/uploads/sites/4/2019/07/test.png',
+            imageOrientation: ImageOrientation.PORTRAIT,
+          ));
         }
-        case 1:
+      case 1:
         {
           return Center(
             child: Text('Events'),
           );
         }
-        case 2:
+      case 2:
         {
           return Center(
             child: Text('News'),
           );
         }
-        case 3:
+      case 3:
         {
           return Center(
             child: Text('Settings'),
