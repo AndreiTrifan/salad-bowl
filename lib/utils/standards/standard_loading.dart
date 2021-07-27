@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../standards/style_standards.dart';
 
 class StandardLoading extends StatelessWidget {
@@ -6,13 +7,9 @@ class StandardLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        CircularProgressIndicator(
-          color: StandardColors.standardBlack,
-        )
-      ],
-    );
+    return Center(
+        child: CircularProgressIndicator(
+      color: StandardColors.standardBlack,
+    ));
   }
 }
