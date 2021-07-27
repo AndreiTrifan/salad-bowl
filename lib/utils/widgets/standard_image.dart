@@ -21,9 +21,16 @@ class StandardImage extends StatelessWidget {
       call.
     */
   StandardImage(
-      {required this.url, this.imageOrientation = ImageOrientation.LANDSCAPE});
+      {required this.url,
+      this.imageOrientation = ImageOrientation.LANDSCAPE,
+      this.width = 160,
+      this.height = 250,
+      this.fit = BoxFit.scaleDown});
   final String url;
   final ImageOrientation imageOrientation; //DEFAULT VALUE IS LANDSCAPE
+  final double width; // DEFAULT VALUE IS 200 * 4 / 5
+  final double height; // DEFAULT VALUE IS 200 * 5 / 4
+  final BoxFit fit;
 
   @override
   Widget build(BuildContext context) {
