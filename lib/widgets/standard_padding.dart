@@ -1,41 +1,36 @@
 import 'package:flutter/material.dart';
+import '../utils/standards/style_standards.dart';
 
 class StandardPadding extends StatelessWidget {
-  // const StandartPadding({Key? key}) : super(key: key);
-
   final Widget child;
   final double top;
   final double bottom;
   final double left;
   final double right;
-  // double horizontal;
-  // double vertical;
 
   StandardPadding({
     required this.child,
-    required this.top,
-    required this.bottom,
-    required this.left,
-    required this.right,
+    this.top = StandardSpacing.verticalSpacing,
+    this.bottom = StandardSpacing.verticalSpacing,
+    this.left = StandardSpacing.horizontalSpacing,
+    this.right = StandardSpacing.horizontalSpacing,
   });
 
-  // StandardPadding.all(double value){
-  //   this.top = value;
-  // };
-
-  // factory StandardPadding.all(this.child, double val){
-  //   this.top = val;
-  //   this.bottom = val;
-  //   this.left = val;
-  //   this.right = val;
-  // };
+  factory StandardPadding.all(Widget child, double value) {
+    return StandardPadding(
+      child: child,
+      top: value,
+      bottom: value,
+      left: value,
+      right: value,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding:
           EdgeInsets.only(top: top, bottom: bottom, left: left, right: right),
-      // padding: Edge,
       child: child,
     );
   }
