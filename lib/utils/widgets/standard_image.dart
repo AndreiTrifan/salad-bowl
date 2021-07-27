@@ -70,6 +70,16 @@ class StandardImage extends StatelessWidget {
                   : 4 / 5,
               child: Image(
                 image: AssetImage(url),
+                errorBuilder: (BuildContext context, Object exception,
+                    StackTrace? stackTrace) {
+                  return imageOrientation == ImageOrientation.LANDSCAPE
+                      ? Image(
+                          image: AssetImage(
+                              'assets/placeHolders/image_placeholder_landscape.png'))
+                      : Image(
+                          image: AssetImage(
+                              'assets/placeHolders/image_placeholder_portrait.png'));
+                },
               ),
             ),
     );
