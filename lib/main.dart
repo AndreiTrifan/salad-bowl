@@ -5,7 +5,6 @@ import 'package:provider_for_redux/provider_for_redux.dart';
 import 'package:u_win/redux/app_state.dart';
 import 'package:u_win/redux/store.dart';
 import 'package:u_win/utils/constants.dart';
-import 'package:u_win/utils/widgets/CustomCirculaProgressIndicactor.dart';
 
 import '../home/home_screen.dart';
 import 'init/init_screen.dart';
