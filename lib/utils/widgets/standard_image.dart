@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../standards/style_standards.dart';
 import '../constants.dart';
 
-class StandardImage extends StatefulWidget {
+class StandardImage extends StatelessWidget {
   /*
       This widget takes a "url" that points to either the relative path of a 
       file stored in memory or a web page url. It also takes an 
@@ -25,11 +25,6 @@ class StandardImage extends StatefulWidget {
   final ImageOrientation imageOrientation;
 
   @override
-  _StandardImageState createState() => _StandardImageState();
-}
-
-class _StandardImageState extends State<StandardImage> {
-  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -37,24 +32,23 @@ class _StandardImageState extends State<StandardImage> {
           borderRadius: BorderRadius.all(
             Radius.circular(StandardCornerRadius.radius),
           )),
-      child: widget.url.startsWith('https://')
+      child: url.startsWith('https://')
           ? AspectRatio(
-              aspectRatio: widget.imageOrientation == ImageOrientation.LANDSCAPE
+              aspectRatio: imageOrientation == ImageOrientation.LANDSCAPE
                   ? 16 / 9
                   : 4 / 5,
               child: FadeInImage.assetNetwork(
-                placeholder:
-                    widget.imageOrientation == ImageOrientation.LANDSCAPE
-                        ? 'assets/placeHolders/image_placeholder_landscape.png'
-                        : 'assets/placeHolders/image_placeholder_portrait.png',
-                image: widget.url,
+                placeholder: imageOrientation == ImageOrientation.LANDSCAPE
+                    ? 'assets/placeHolders/image_placeholder_landscape.png'
+                    : 'assets/placeHolders/image_placeholder_portrait.png',
+                image: url,
               ))
           : AspectRatio(
-              aspectRatio: widget.imageOrientation == ImageOrientation.LANDSCAPE
+              aspectRatio: imageOrientation == ImageOrientation.LANDSCAPE
                   ? 16 / 9
                   : 4 / 5,
               child: Image(
-                image: AssetImage(widget.url),
+                image: AssetImage(url),
               ),
             ),
     );
