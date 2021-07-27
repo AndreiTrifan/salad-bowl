@@ -12,7 +12,6 @@ import 'init/init_screen.dart';
 final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
-
   //Set tha navigation key to be used with the store navigator.
   NavigateAction.setNavigatorKey(navigatorKey);
 
@@ -24,7 +23,6 @@ void main() {
       runAppFunction: () {
         runApp(MyApp());
       });
-
 }
 
 class MyApp extends StatelessWidget {
