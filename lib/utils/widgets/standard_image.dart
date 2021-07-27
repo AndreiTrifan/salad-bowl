@@ -23,8 +23,8 @@ class StandardImage extends StatelessWidget {
   StandardImage(
       {required this.url,
       this.imageOrientation = ImageOrientation.LANDSCAPE,
-      this.width = 160,
-      this.height = 250,
+      this.width = 250,
+      this.height = 160,
       this.fit = BoxFit.scaleDown});
   final String url;
   final ImageOrientation imageOrientation; //DEFAULT VALUE IS LANDSCAPE
@@ -35,23 +35,35 @@ class StandardImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: width,
+      height: height,
       decoration: BoxDecoration(
           border: Border.all(),
           borderRadius: BorderRadius.all(
             Radius.circular(StandardCornerRadius.radius),
           )),
-      child: url.startsWith('https://')
+      child: Uri.tryParse(url)?.hasAbsolutePath ?? false //CHECK IF WEB LINK
           ? AspectRatio(
               aspectRatio: imageOrientation == ImageOrientation.LANDSCAPE
                   ? 16 / 9
                   : 4 / 5,
               child: FadeInImage.assetNetwork(
-                fadeOutDuration: Duration(milliseconds: 3),
-                placeholder: imageOrientation == ImageOrientation.LANDSCAPE
-                    ? 'assets/placeHolders/image_placeholder_landscape.png'
-                    : 'assets/placeHolders/image_placeholder_portrait.png',
-                image: url,
-              ))
+                  fadeOutDuration: Duration(milliseconds: 3),
+                  placeholder: imageOrientation == ImageOrientation.LANDSCAPE
+                      ? 'assets/placeHolders/image_placeholder_landscape.png'
+                      : 'assets/placeHolders/image_placeholder_portrait.png',
+                  image: url,
+                  //IF IMAGE DOES NOT LOAD THEN RETURN PLACEHOLDER IMAGE
+                  imageErrorBuilder: (BuildContext context, Object exception,
+                      StackTrace? stackTrace) {
+                    return imageOrientation == ImageOrientation.LANDSCAPE
+                        ? Image(
+                            image: AssetImage(
+                                'assets/placeHolders/image_placeholder_landscape.png'))
+                        : Image(
+                            image: AssetImage(
+                                'assets/placeHolders/image_placeholder_portrait.png'));
+                  }))
           : AspectRatio(
               aspectRatio: imageOrientation == ImageOrientation.LANDSCAPE
                   ? 16 / 9
