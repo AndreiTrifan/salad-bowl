@@ -38,12 +38,17 @@ class _StandardImageState extends State<StandardImage> {
             Radius.circular(StandardCornerRadius.radius),
           )),
       child: widget.url.startsWith('https://')
-          ? FadeInImage.assetNetwork(
-              placeholder: widget.imageOrientation == ImageOrientation.LANDSCAPE
-                  ? 'assets/placeHolders/image_placeholder_landscape.png'
-                  : 'assets/placeHolders/image_placeholder_portrait.png',
-              image: widget.url,
-            )
+          ? AspectRatio(
+              aspectRatio: widget.imageOrientation == ImageOrientation.LANDSCAPE
+                  ? 16 / 9
+                  : 4 / 5,
+              child: FadeInImage.assetNetwork(
+                placeholder:
+                    widget.imageOrientation == ImageOrientation.LANDSCAPE
+                        ? 'assets/placeHolders/image_placeholder_landscape.png'
+                        : 'assets/placeHolders/image_placeholder_portrait.png',
+                image: widget.url,
+              ))
           : AspectRatio(
               aspectRatio: widget.imageOrientation == ImageOrientation.LANDSCAPE
                   ? 16 / 9
