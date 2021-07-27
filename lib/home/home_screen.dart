@@ -2,9 +2,7 @@ import 'package:async_redux/async_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_for_redux/provider_for_redux.dart';
 import 'package:u_win/redux/app_state.dart';
-import 'package:u_win/utils/constants.dart';
 import 'package:u_win/utils/widgets/nav_bar.dart';
-import 'package:u_win/utils/widgets/standard_image.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
