@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:u_win/utils/standards/style_standards.dart';
+import '../standards/style_standards.dart';
 
 class CustomCircularIndicator extends StatelessWidget {
   const CustomCircularIndicator({Key? key}) : super(key: key);
