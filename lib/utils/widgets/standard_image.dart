@@ -46,7 +46,7 @@ class _StandardImageState extends State<StandardImage> {
           : AspectRatio(
               aspectRatio: widget.imageOrientation == ImageOrientation.LANDSCAPE
                   ? 16 / 9
-                  : 5 / 4,
+                  : 4 / 5,
               child: Image(
                 image: AssetImage(widget.url),
               ),
