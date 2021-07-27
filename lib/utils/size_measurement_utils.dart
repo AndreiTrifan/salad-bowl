@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-double getTextHeight(String text, TextStyle style) {
+double getTextHeight(String text, TextStyle style, double textScaleFactor) {
   /*
     Input: Textul care va veni in widget-ul Text, stilul acestui text, si 
     factorul de scalare al acestuia.
@@ -16,9 +16,10 @@ double getTextHeight(String text, TextStyle style) {
     numele functiei).
   */
   final TextPainter textPainter = TextPainter(
+      textScaleFactor: textScaleFactor,
       text: TextSpan(text: text, style: style),
       maxLines: 1,
       textDirection: TextDirection.ltr)
     ..layout(minWidth: 0, maxWidth: double.infinity);
-  return textPainter.size.height * textPainter.textScaleFactor;
+  return textPainter.size.height;
 }
