@@ -41,6 +41,4 @@ flutter:
 
   uses-material-design: true
   assets:
-    - assets/placeHolders/image_placeholder_landscape.png
-    - assets/placeHolders/image_placeholder_portrait.png
-    - assets/placeHolders/image_placeholder.png
+    - assets/placeHolders/
