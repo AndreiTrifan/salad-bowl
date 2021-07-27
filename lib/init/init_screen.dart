@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:u_win/init/init_actions.dart';
@@ -13,7 +11,6 @@ class InitScreen extends StatefulWidget {
 }
 
 class _InitScreenState extends State<InitScreen> {
-
   @override
   void initState() {
     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
