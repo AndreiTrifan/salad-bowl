@@ -5,6 +5,7 @@ import 'package:provider_for_redux/provider_for_redux.dart';
 import 'package:u_win/redux/app_state.dart';
 import 'package:u_win/redux/store.dart';
 import 'package:u_win/utils/constants.dart';
+import 'package:u_win/utils/widgets/CustomCirculaProgressIndicactor.dart';
 
 import '../home/home_screen.dart';
 import 'init/init_screen.dart';
@@ -12,7 +13,6 @@ import 'init/init_screen.dart';
 final navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
-
   //Set tha navigation key to be used with the store navigator.
   NavigateAction.setNavigatorKey(navigatorKey);
 
@@ -24,7 +24,6 @@ void main() {
       runAppFunction: () {
         runApp(MyApp());
       });
-
 }
 
 class MyApp extends StatelessWidget {

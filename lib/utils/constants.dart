@@ -1,8 +1,4 @@
-
-enum Environment {
-  PRODUCTION,
-  DEVELOPMENT
-}
+enum Environment { PRODUCTION, DEVELOPMENT }
 
 class Routes {
   static const coupons = 'coupons';
