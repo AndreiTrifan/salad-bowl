@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '/utils/constants.dart';
 import '/utils/standards/standard_image.dart';
 import 'style_standards.dart';
+import 'standard_spacing.dart';
 
 class StandardEmptyScreen extends StatelessWidget {
   final ImageOrientation imageOrientation;
@@ -21,7 +22,7 @@ class StandardEmptyScreen extends StatelessWidget {
           width: width,
           imageOrientation: imageOrientation,
         ),
-        SizedBox(height: 15), //Spacing so it looks nice
+        StandardVerticalSpacing(), //Spacing so it looks nice
         Text(
           'Nu există conținut',
           style: _textStyle,
