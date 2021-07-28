@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/standards/style_standards.dart';
+import '../standards/style_standards.dart';
 
 class AppLayoutWidget extends StatelessWidget {
   final Widget child;
