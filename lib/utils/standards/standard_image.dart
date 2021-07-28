@@ -30,7 +30,7 @@ class StandardImage extends StatelessWidget {
   final ImageOrientation imageOrientation; //DEFAULT VALUE IS LANDSCAPE
   final double? width;
   final double? height;
-  final BoxFit fit;
+  final BoxFit? fit;
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +41,14 @@ class StandardImage extends StatelessWidget {
         width: width,
       );
     return Container(
-      width: width,
-      height: height,
-      decoration: BoxDecoration(
-          border: Border.all(),
-          borderRadius: BorderRadius.all(
-            Radius.circular(StandardCornerRadius.radius),
-          )),
-      child: AspectRatio(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+            border: Border.all(),
+            borderRadius: BorderRadius.all(
+              Radius.circular(StandardCornerRadius.radius),
+            )),
+        child: AspectRatio(
           aspectRatio:
               imageOrientation == ImageOrientation.LANDSCAPE ? 16 / 9 : 4 / 5,
           child: url!.contains('assets')
@@ -66,29 +66,24 @@ class StandardImage extends StatelessWidget {
                   },
                 )
               //IF WEB IMAGE
-              : ClipRRect(
-                  borderRadius:
-                      BorderRadius.circular(StandardCornerRadius.radius),
-                  child: FadeInImage.assetNetwork(
-                      fadeOutDuration: Duration(milliseconds: 3),
-                      placeholder: imageOrientation ==
-                              ImageOrientation.LANDSCAPE
-                          ? 'assets/placeHolders/image_placeholder_landscape.png'
-                          : 'assets/placeHolders/image_placeholder_portrait.png',
-                      alignment: Alignment.center,
-                      image: url!,
-                      fit: fit,
-                      //IF IMAGE DOES NOT LOAD THEN RETURN PLACEHOLDER IMAGE
-                      imageErrorBuilder: (BuildContext context,
-                          Object exception, StackTrace? stackTrace) {
-                        return _PlaceHolderWidget(
-                          height: height,
-                          imageOrientation: imageOrientation,
-                          width: width,
-                        );
-                      }),
-                )),
-    );
+              : FadeInImage.assetNetwork(
+                  fadeOutDuration: Duration(milliseconds: 3),
+                  placeholder: imageOrientation == ImageOrientation.LANDSCAPE
+                      ? 'assets/placeHolders/image_placeholder_landscape.png'
+                      : 'assets/placeHolders/image_placeholder_portrait.png',
+                  alignment: Alignment.center,
+                  image: url!,
+                  fit: fit,
+                  //IF IMAGE DOES NOT LOAD THEN RETURN PLACEHOLDER IMAGE
+                  imageErrorBuilder: (BuildContext context, Object exception,
+                      StackTrace? stackTrace) {
+                    return _PlaceHolderWidget(
+                      height: height,
+                      imageOrientation: imageOrientation,
+                      width: width,
+                    );
+                  }),
+        ));
   }
 }
 
@@ -115,6 +110,7 @@ class _PlaceHolderWidget extends StatelessWidget {
                   Radius.circular(StandardCornerRadius.radius),
                 )),
             child: Image(
+              fit: BoxFit.scaleDown,
               image: AssetImage('assets/placeHolders/image_placeholder.png'),
             )));
   }
