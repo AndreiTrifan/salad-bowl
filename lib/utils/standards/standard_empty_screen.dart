@@ -10,7 +10,7 @@ class StandardEmptyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _textStyle = StandardTextStyles.headline.regular;
+    var _textStyle = StandardTextStyles.body.regular;
     double width = MediaQuery.of(context).size.width;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
