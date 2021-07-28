@@ -17,6 +17,7 @@ class StandardEmptyScreen extends StatelessWidget {
           width: width,
           imageOrientation: ImageOrientation.PORTRAIT,
         ),
+        SizedBox(height: 15), //Spacing so it looks nice
         Text('Nu există conținut'),
       ],
     );
