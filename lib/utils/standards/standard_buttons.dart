@@ -7,7 +7,7 @@ import '../size_measurement_utils.dart';
 import '../standards/style_standards.dart';
 
 class StandardButton extends StatelessWidget {
-  final Function() onTap;
+  final Function()? onTap;
   final String name;
   final IconData? leadingIcon;
   final IconData? trailingIcon;
@@ -33,9 +33,9 @@ class StandardButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _textScaleFactor = MediaQuery.of(context).textScaleFactor;
-    var _textStyle = onTap != null
-        ? StandardTextStyles.headline.semibold.copyWith(color: textColor)
-        : StandardTextStyles.headline.semibold;
+    var _textStyle = StandardTextStyles.headline.semibold
+        .copyWith(color: onTap == null ? disabledTextColor : textColor);
+
     return Container(
       height: _calculateHeight(_textScaleFactor, name, _textStyle),
       child: ElevatedButton(
@@ -47,7 +47,7 @@ class StandardButton extends StatelessWidget {
               widget: StandardPadding(
                 child: Icon(
                   leadingIcon,
-                  size: _iconSize(iconSize, _textScaleFactor, context),
+                  size: _getIconSize(iconSize, _textScaleFactor, context),
                 ),
                 top: 0,
                 bottom: 0,
@@ -71,7 +71,7 @@ class StandardButton extends StatelessWidget {
               widget: StandardPadding(
                 child: Icon(
                   trailingIcon,
-                  size: _iconSize(iconSize, _textScaleFactor, context),
+                  size: _getIconSize(iconSize, _textScaleFactor, context),
                 ),
                 top: 0,
                 bottom: 0,
@@ -80,7 +80,7 @@ class StandardButton extends StatelessWidget {
             ),
             StandardImage(
                 url: image,
-                width: _iconSize(iconSize, _textScaleFactor, context))
+                width: _getIconSize(iconSize, _textScaleFactor, context))
           ],
         ),
       ),
@@ -118,7 +118,7 @@ class StandardIconButton extends StatelessWidget {
       icon: Icon(
         icon,
         color: iconColor,
-        size: _iconSize(iconSize, _textScaleFactor, context),
+        size: _getIconSize(iconSize, _textScaleFactor, context),
       ),
       constraints: BoxConstraints(),
       alignment: alignment,
@@ -128,7 +128,7 @@ class StandardIconButton extends StatelessWidget {
   }
 }
 
-double _iconSize(
+double _getIconSize(
     double? iconSize, double textScaleFactor, BuildContext context) {
   if (iconSize != null) return iconSize * textScaleFactor;
 
