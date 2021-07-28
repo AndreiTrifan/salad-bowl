@@ -18,22 +18,19 @@ class StandardButton extends StatelessWidget {
   final Color? textColor;
   final Color? disabledTextColor;
 
-  StandardButton(
-      this.onTap,
-      this.name,
-      this.leadingIcon,
+  StandardButton(@required this.onTap, @required this.name,
+      {this.leadingIcon,
       this.trailingIcon,
-      this.iconColor,
+      this.iconColor = StandardColors.standardWhite,
       this.iconSize,
       this.buttonColor,
       this.image,
-      this.textColor,
-      this.disabledTextColor);
+      this.textColor = StandardColors.standardBlack,
+      this.disabledTextColor});
 
   @override
   Widget build(BuildContext context) {
-    var _textStyle = StandardTextStyles.headline.semibold
-        .copyWith(color: textColor ?? StandardColors.standardBlack);
+    var _textStyle = StandardTextStyles.headline.semibold;
     var _textScaleFactor = MediaQuery.of(context).textScaleFactor;
     return Container(
       height: _calculateHeight(_textScaleFactor, name, _textStyle),
@@ -47,9 +44,10 @@ class StandardButton extends StatelessWidget {
             checkWidgetParameter(
               parameter: leadingIcon,
               widget: StandardPadding(
-                child: Icon(leadingIcon,
-                    color: iconColor ?? StandardColors.standardWhite,
-                    size: iconSize ?? StandardIconSize(context).smallIcon),
+                child: Icon(
+                  leadingIcon,
+                  size: iconSize ?? StandardIconSize(context).smallIcon,
+                ),
                 top: 0,
                 bottom: 0,
                 left: 0,
@@ -69,7 +67,6 @@ class StandardButton extends StatelessWidget {
               widget: StandardPadding(
                 child: Icon(
                   trailingIcon,
-                  color: iconColor ?? StandardColors.standardWhite,
                   size: iconSize ?? StandardIconSize(context).smallIcon,
                 ),
                 top: 0,
@@ -77,7 +74,11 @@ class StandardButton extends StatelessWidget {
                 left: 0,
               ),
             ),
-            StandardImage(url: image)
+            StandardImage(
+                url: image,
+                width: iconSize == null
+                    ? StandardIconSize(context).smallIcon
+                    : iconSize! * _textScaleFactor)
           ],
         ),
       ),
