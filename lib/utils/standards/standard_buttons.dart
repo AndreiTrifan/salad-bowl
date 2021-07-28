@@ -13,7 +13,7 @@ class StandardButton extends StatelessWidget {
   final IconData? trailingIcon;
   final Color iconColor;
   final double? iconSize;
-  final Color? buttonColor;
+  final Color buttonColor;
   final String? image;
   final Color textColor;
   final Color? disabledTextColor;
@@ -25,21 +25,21 @@ class StandardButton extends StatelessWidget {
       this.trailingIcon,
       this.iconColor = StandardColors.standardWhite,
       this.iconSize,
-      this.buttonColor,
+      this.buttonColor = StandardColors.standardBlack,
       this.image,
       this.textColor = StandardColors.standardBlack,
       this.disabledTextColor});
 
   @override
   Widget build(BuildContext context) {
-    var _textStyle = StandardTextStyles.headline.semibold;
+    var _textScaleFactor = MediaQuery.of(context).textScaleFactor;
+    var _textStyle = onTap != null
+        ? StandardTextStyles.headline.semibold.copyWith(color: textColor)
+        : StandardTextStyles.headline.semibold;
     return Container(
-      height: _calculateHeight(textScaleFactor(context), name, _textStyle),
+      height: _calculateHeight(_textScaleFactor, name, _textStyle),
       child: ElevatedButton(
         onPressed: onTap,
-        style: ElevatedButton.styleFrom(
-          primary: StandardColors.standardBlack,
-        ),
         child: Row(
           children: [
             checkWidgetParameter(
@@ -47,7 +47,7 @@ class StandardButton extends StatelessWidget {
               widget: StandardPadding(
                 child: Icon(
                   leadingIcon,
-                  size: iconSize ?? StandardIconSize(context).smallIcon,
+                  size: _iconSize(iconSize, _textScaleFactor, context),
                 ),
                 top: 0,
                 bottom: 0,
@@ -71,7 +71,7 @@ class StandardButton extends StatelessWidget {
               widget: StandardPadding(
                 child: Icon(
                   trailingIcon,
-                  size: iconSize ?? StandardIconSize(context).smallIcon,
+                  size: _iconSize(iconSize, _textScaleFactor, context),
                 ),
                 top: 0,
                 bottom: 0,
@@ -80,9 +80,7 @@ class StandardButton extends StatelessWidget {
             ),
             StandardImage(
                 url: image,
-                width: iconSize == null
-                    ? StandardIconSize(context).smallIcon
-                    : iconSize! * textScaleFactor(context))
+                width: _iconSize(iconSize, _textScaleFactor, context))
           ],
         ),
       ),
@@ -94,10 +92,6 @@ class StandardButton extends StatelessWidget {
     return StandardSpacing.verticalSpacing * 2 +
         getTextHeight(text, style, textScaleFactor);
   }
-}
-
-double textScaleFactor(BuildContext context) {
-  return MediaQuery.of(context).textScaleFactor;
 }
 
 class StandardIconButton extends StatelessWidget {
@@ -118,13 +112,13 @@ class StandardIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var _textScaleFactor = MediaQuery.of(context).textScaleFactor;
     return IconButton(
       onPressed: onTap,
       icon: Icon(
         icon,
         color: iconColor,
-        size: iconSize ??
-            StandardIconSize(context).smallIcon * textScaleFactor(context),
+        size: _iconSize(iconSize, _textScaleFactor, context),
       ),
       constraints: BoxConstraints(),
       alignment: alignment,
@@ -132,4 +126,11 @@ class StandardIconButton extends StatelessWidget {
       padding: padding,
     );
   }
+}
+
+double _iconSize(
+    double? iconSize, double textScaleFactor, BuildContext context) {
+  if (iconSize != null) return iconSize * textScaleFactor;
+
+  return StandardIconSize(context).smallIcon;
 }
