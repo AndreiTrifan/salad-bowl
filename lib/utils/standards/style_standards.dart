@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:u_win/utils/standards/standard_text_styles_model.dart';
 
 class StandardTextStyles {
-
   static var largeTitle = StandardTextStylesModel(
       textStyle: TextStyle(fontSize: StandardFontSize.largeTitleSize));
   static var title1 = StandardTextStylesModel(
@@ -77,7 +76,8 @@ class StandardIconSize {
     smallIcon = 25 * textScaleFactor;
     normalIcon = 35 * textScaleFactor;
     bigIcon = 50 * textScaleFactor;
-  }}
+  }
+}
 
 class StandardCornerRadius {
   static const double radius = 16;
@@ -99,5 +99,5 @@ class StandardSpacing {
 }
 
 class StandardElevation {
-  static final int cardElevation = 1;
+  static final double cardElevation = 1;
 }

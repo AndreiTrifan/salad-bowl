@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './standard_padding.dart';
-import '../standards/style_standards.dart';
+import '../widgets/standard_padding.dart';
+import 'style_standards.dart';
 
 class StandardCard extends StatelessWidget {
   final Widget child;
@@ -13,16 +13,17 @@ class StandardCard extends StatelessWidget {
     required this.child,
     this.color = StandardColors.standardWhite,
     this.padding = StandardSpacing.verticalSpacing,
-  }) : this.shape = StandardCornerRadius.roundedCorners;
+    this.shape,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: StandardPadding.all(child, padding),
-      elevation: StandardElevation.cardElevation.toDouble(),
-      margin: EdgeInsets.all(StandardMargin.cardMargin.toDouble()),
+      elevation: StandardElevation.cardElevation,
+      margin: EdgeInsets.all(StandardMargin.cardMargin),
       color: color,
-      shape: shape,
+      shape: shape ?? StandardCornerRadius.roundedCorners,
     );
   }
 }
