@@ -6,7 +6,7 @@ class StandardIconButton extends StatelessWidget {
   StandardIconButton(this.onTap, this.icon, this.iconColor, this.iconSize,
       this.alignment, this.padding);
 
-  final Function onTap;
+  final Function() onTap;
   final IconData icon;
   final Color? iconColor;
   final double? iconSize;
@@ -16,16 +16,16 @@ class StandardIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      onPressed: onTap as Function(),
+      onPressed: onTap,
       icon: Icon(
         icon,
-        color: StandardColors.standardBlack,
-        size: iconSize != null ? iconSize : StandardIconSize(context).smallIcon,
+        color: iconColor ?? StandardColors.standardBlack,
+        size: iconSize ?? StandardIconSize(context).smallIcon,
       ),
       constraints: BoxConstraints(),
-      alignment: Alignment.center,
+      alignment: alignment ?? Alignment.center,
       splashColor: Colors.transparent,
-      padding: EdgeInsets.zero,
+      padding: padding ?? EdgeInsets.zero,
     );
   }
 }

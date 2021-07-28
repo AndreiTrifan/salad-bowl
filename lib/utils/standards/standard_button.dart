@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../standards/standard_image.dart';
 import '../error_check_utils.dart';
 import '../standards/standard_padding.dart';
 import '../size_measurement_utils.dart';
 import '../standards/style_standards.dart';
 
 class StandardButton extends StatelessWidget {
-  final Function onTap;
+  final Function() onTap;
   final String name;
   final IconData? leadingIcon;
   final IconData? trailingIcon;
@@ -35,9 +36,9 @@ class StandardButton extends StatelessWidget {
         .copyWith(color: textColor ?? StandardColors.standardBlack);
     var _textScaleFactor = MediaQuery.of(context).textScaleFactor;
     return Container(
-      height: calculateHeight(_textScaleFactor, name, _textStyle),
+      height: _calculateHeight(_textScaleFactor, name, _textStyle),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onTap,
         style: ElevatedButton.styleFrom(
           primary: StandardColors.standardBlack,
         ),
@@ -76,16 +77,15 @@ class StandardButton extends StatelessWidget {
                 left: 0,
               ),
             ),
-            Container(
-              child: Image.asset(image as String),
-            ),
+            StandardImage(url: image)
           ],
         ),
       ),
     );
   }
 
-  double calculateHeight(double textScaleFactor, String text, TextStyle style) {
+  double _calculateHeight(
+      double textScaleFactor, String text, TextStyle style) {
     return StandardSpacing.verticalSpacing * 2 +
         getTextHeight(text, style, textScaleFactor);
   }
