@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:u_win/utils/standards/standard_spacing.dart';
 
+import '../../utils/standards/standard_spacing.dart';
 import '../../utils/standards/standard_image.dart';
 import '../../utils/standards/style_standards.dart';
 
