@@ -1,17 +1,11 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:u_win/utils/standards/standard_text_styles_model.dart';
-import 'package:u_win/widgets/standard_padding.dart';
 
+import '../error_check_utils.dart';
+import '../standards/standard_padding.dart';
 import '../size_measurement_utils.dart';
 import '../standards/style_standards.dart';
 
 class StandardButton extends StatelessWidget {
-//culoarea butonului atunci cand este inactiv: light grey (standarde de culoare)?
-//Fiecare element trebuie verificat cu functia checkWidgetParameter(Functie verificare parametru  #13), iar intre elemente trebuie sa existe o spatiere standard. De asemenea, se vor lua in considerare toti parametrii primiti.?
-//-stilul textului: headline.semibold (standarde de text)
-//imagine: dimensiune?
   final Function onTap;
   final String name;
   final IconData? leadingIcon;
@@ -38,7 +32,7 @@ class StandardButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var _textStyle = StandardTextStyles.headline.semibold
-        .copyWith(color: textColor ?? StandardColors.standardWhite);
+        .copyWith(color: textColor ?? StandardColors.standardBlack);
     var _textScaleFactor = MediaQuery.of(context).textScaleFactor;
     return Container(
       height: calculateHeight(_textScaleFactor, name, _textStyle),
@@ -49,13 +43,42 @@ class StandardButton extends StatelessWidget {
         ),
         child: Row(
           children: [
-            if (leadingIcon != null)
-              StandardPadding(
-                child: Icon(leadingIcon),
+            checkWidgetParameter(
+              parameter: leadingIcon,
+              widget: StandardPadding(
+                child: Icon(leadingIcon,
+                    color: iconColor ?? StandardColors.standardWhite,
+                    size: iconSize ?? StandardIconSize(context).smallIcon),
                 top: 0,
                 bottom: 0,
                 left: 0,
-              )
+              ),
+            ),
+            checkWidgetParameter(
+              parameter: name,
+              widget: StandardPadding(
+                child: Text(name),
+                top: 0,
+                bottom: 0,
+                left: 0,
+              ),
+            ),
+            checkWidgetParameter(
+              parameter: trailingIcon,
+              widget: StandardPadding(
+                child: Icon(
+                  trailingIcon,
+                  color: iconColor ?? StandardColors.standardWhite,
+                  size: iconSize ?? StandardIconSize(context).smallIcon,
+                ),
+                top: 0,
+                bottom: 0,
+                left: 0,
+              ),
+            ),
+            Container(
+              child: Image.asset(image as String),
+            ),
           ],
         ),
       ),
