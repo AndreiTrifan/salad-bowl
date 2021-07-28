@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../utils/standards/style_standards.dart';
 
-class AddMargin extends StatelessWidget {
+class AppLayoutWidget extends StatelessWidget {
   final Widget child;
 
-  AddMargin({
+  AppLayoutWidget({
     required this.child,
   });
 
