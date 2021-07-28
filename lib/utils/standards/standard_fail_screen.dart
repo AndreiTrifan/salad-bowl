@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../utils/standards/standard_spacing.dart';
 import '../../utils/standards/standard_image.dart';
 import '../../utils/standards/style_standards.dart';
+import '../constants.dart';
 
 class FailedRequestScreen extends StatelessWidget {
   @override
@@ -13,6 +14,7 @@ class FailedRequestScreen extends StatelessWidget {
         StandardImage(
           url: 'assets/illustrations/warning.png',
           width: MediaQuery.of(context).size.width / 2,
+          imageOrientation: ImageOrientation.PORTRAIT,
         ),
         StandardVerticalSpacing(),
         Text('Datele nu au putut fi incarcate!',

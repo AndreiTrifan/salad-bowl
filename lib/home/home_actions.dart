@@ -1,6 +1,6 @@
-
 import 'package:async_redux/async_redux.dart';
-import 'package:u_win/redux/app_state.dart';
+
+import '../redux/app_state.dart';
 
 class SwitchCurrentNavigationIndexAction extends ReduxAction<AppState> {
 

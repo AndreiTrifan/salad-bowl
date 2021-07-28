@@ -1,6 +1,7 @@
 import 'package:async_redux/async_redux.dart';
-import 'package:u_win/redux/app_state.dart';
-import 'package:u_win/utils/constants.dart';
+
+import '../redux/app_state.dart';
+import '../utils/constants.dart';
 
 class InitializeApplication extends ReduxAction<AppState> {
   @override
