@@ -6,9 +6,7 @@ import 'style_standards.dart';
 import 'standard_spacing.dart';
 
 class StandardEmptyScreen extends StatelessWidget {
-  final ImageOrientation imageOrientation;
-  const StandardEmptyScreen(
-      [this.imageOrientation = ImageOrientation.LANDSCAPE]);
+  const StandardEmptyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,7 @@ class StandardEmptyScreen extends StatelessWidget {
         StandardImage(
           url: 'assets/illustrations/emptyData.png',
           width: width,
-          imageOrientation: imageOrientation,
+          imageOrientation: ImageOrientation.PORTRAIT,
         ),
         StandardVerticalSpacing(), //Spacing so it looks nice
         Text(
