@@ -35,19 +35,19 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Text('Coupons'),
           );
         }
-        case 1:
+      case 1:
         {
           return Center(
             child: Text('Events'),
           );
         }
-        case 2:
+      case 2:
         {
           return Center(
             child: Text('News'),
           );
         }
-        case 3:
+      case 3:
         {
           return Center(
             child: Text('Settings'),
