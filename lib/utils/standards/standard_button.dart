@@ -18,8 +18,10 @@ class StandardButton extends StatelessWidget {
   final Color? textColor;
   final Color? disabledTextColor;
 
-  StandardButton(@required this.onTap, @required this.name,
-      {this.leadingIcon,
+  StandardButton(
+      {required this.onTap,
+      required this.name,
+      this.leadingIcon,
       this.trailingIcon,
       this.iconColor = StandardColors.standardWhite,
       this.iconSize,
@@ -56,7 +58,10 @@ class StandardButton extends StatelessWidget {
             checkWidgetParameter(
               parameter: name,
               widget: StandardPadding(
-                child: Text(name),
+                child: Text(
+                  name,
+                  style: _textStyle,
+                ),
                 top: 0,
                 bottom: 0,
                 left: 0,
