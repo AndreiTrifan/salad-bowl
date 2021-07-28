@@ -98,3 +98,14 @@ class StandardMoreInfoArrow extends StatelessWidget {
     );
   }
 }
+
+class StandardRightArrow extends StatelessWidget {
+  const StandardRightArrow({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Icon(
+      Icons.keyboard_arrow_right
+    );
+  }
+}
