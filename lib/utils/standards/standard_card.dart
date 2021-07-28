@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/standard_padding.dart';
-import 'style_standards.dart';
+import './standard_padding.dart';
+import './style_standards.dart';
 
 class StandardCard extends StatelessWidget {
   final Widget child;
