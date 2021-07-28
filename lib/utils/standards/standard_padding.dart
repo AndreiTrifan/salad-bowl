@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'style_standards.dart';
+import './style_standards.dart';
 
 class StandardPadding extends StatelessWidget {
   final Widget child;
