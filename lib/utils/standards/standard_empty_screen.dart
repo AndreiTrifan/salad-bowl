@@ -4,7 +4,9 @@ import '/utils/constants.dart';
 import '/utils/standards/standard_image.dart';
 
 class StandardEmptyScreen extends StatelessWidget {
-  const StandardEmptyScreen({Key? key}) : super(key: key);
+  final ImageOrientation imageOrientation;
+  const StandardEmptyScreen(
+      [this.imageOrientation = ImageOrientation.LANDSCAPE]);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +17,7 @@ class StandardEmptyScreen extends StatelessWidget {
         StandardImage(
           url: 'assets/illustrations/emptyData.png',
           width: width,
-          imageOrientation: ImageOrientation.PORTRAIT,
+          imageOrientation: imageOrientation,
         ),
         SizedBox(height: 15), //Spacing so it looks nice
         Text('Nu există conținut'),
