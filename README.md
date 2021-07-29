@@ -35,4 +35,4 @@ CONVENTII DE LUCRU
 14.	Pentru calcularea unor constrangeri de latime sau inaltime, ar fi indicat sa se creeze o functie privata;
 15.	Daca se doreste aranjarea codul frumos folosind shortcut-ul oferit de IDE (AS si IJ-> ctrl+alt+l, VSC-> alt+shift+f), trebuie selectate doar liniile pe care au fost facute modificari;
 16.	Toate ecranele inafara de cele 4 din nav bar, trebuie sa returneze un AppLayoutWidget, iar pe child se va crea ecranul in sine;
-17.	Toate denumirile le punem in engleza, iar pentru ecrane adaugam si Screen la sfarsit ca sa fim mai expliciti;
+17.	Toate denumirile se pun in engleza, iar pentru ecrane adaugam si Screen la sfarsit ca sa fim mai expliciti;
