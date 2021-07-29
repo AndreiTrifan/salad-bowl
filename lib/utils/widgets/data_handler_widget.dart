@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../standards/standard_fail_screen.dart';
 import '../standards/standard_loading.dart';
 import '../standards/standard_empty_screen.dart';
 import '../constants.dart';
@@ -15,7 +16,7 @@ class DataHandlerWidget extends StatelessWidget {
       case DataStatus.EMPTY:
         return StandardEmptyScreen();
       case DataStatus.ERROR:
-        return StandardFailedScreen();
+        return StandardFailScreen();
       case DataStatus.LOADING:
         return StandardLoading();
       case DataStatus.SUCCESS:

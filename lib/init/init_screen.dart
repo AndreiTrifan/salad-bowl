@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:u_win/init/init_actions.dart';
-import 'package:u_win/redux/store.dart';
+
+import '../init/init_actions.dart';
+import '../redux/store.dart';
 
 class InitScreen extends StatefulWidget {
   const InitScreen({Key? key}) : super(key: key);

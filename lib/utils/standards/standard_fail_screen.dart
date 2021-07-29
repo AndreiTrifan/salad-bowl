@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+
+import '../../utils/standards/standard_spacing.dart';
+import '../../utils/standards/standard_image.dart';
+import '../../utils/standards/style_standards.dart';
+import '../constants.dart';
+
+class StandardFailScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        StandardImage(
+          url: 'assets/illustrations/warning.png',
+          width: MediaQuery.of(context).size.width / 2,
+          imageOrientation: ImageOrientation.PORTRAIT,
+        ),
+        StandardVerticalSpacing(),
+        Text('Datele nu au putut fi incarcate!',
+            style: StandardTextStyles.body.regular)
+      ],
+    );
+  }
+}

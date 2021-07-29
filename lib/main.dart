@@ -2,12 +2,12 @@ import 'package:async_redux/async_redux.dart';
 import 'package:catcher/catcher.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_for_redux/provider_for_redux.dart';
-import 'package:u_win/redux/app_state.dart';
-import 'package:u_win/redux/store.dart';
-import 'package:u_win/utils/constants.dart';
 
-import '../home/home_screen.dart';
-import 'init/init_screen.dart';
+import './home/home_screen.dart';
+import './init/init_screen.dart';
+import './redux/app_state.dart';
+import './redux/store.dart';
+import './utils/constants.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 

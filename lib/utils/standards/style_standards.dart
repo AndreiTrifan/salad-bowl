@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:u_win/utils/standards/standard_text_styles_model.dart';
+
+import './standard_text_styles_model.dart';
 
 class StandardTextStyles {
   static var largeTitle = StandardTextStylesModel(
