@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:u_win/utils/standards/standard_loading.dart';
 
+import '../standards/standard_loading.dart';
 import '../standards/standard_empty_screen.dart';
 import '../constants.dart';
 
