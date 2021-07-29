@@ -8,7 +8,7 @@ class DataHandlerWidget extends StatelessWidget {
   final DataStatus dataStatus;
   final Widget child;
 
-  DataHandlerWidget({required this.dataStatus, required this.child});
+  const DataHandlerWidget({required this.dataStatus, required this.child});
 
   Widget get dataHandlerWidget {
     switch (dataStatus) {
