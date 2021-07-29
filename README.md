@@ -34,3 +34,4 @@ CONVENTII DE LUCRU
 13.	Daca un widget se repeta pe cel putin 2 ecrane, atunci putem discuta o transformare a acestuia intr-un widget standard;
 14.	Pentru calcularea unor constrangeri de latime sau inaltime, ar fi indicat sa se creeze o functie privata;
 15.	Daca se doreste aranjarea codul frumos folosind shortcut-ul oferit de IDE (AS si IJ-> ctrl+alt+l, VSC-> alt+shift+f), trebuie selectate doar liniile pe care au fost facute modificari;
+16.	Toate ecranele inafara de cele 4 din nav bar, trebuie sa returneze un AppLayoutWidget, iar pe child se va crea ecranul in sine
