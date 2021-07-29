@@ -27,8 +27,8 @@ class StandardButton extends StatelessWidget {
       this.iconSize,
       this.buttonColor = StandardColors.standardBlack,
       this.image,
-      this.textColor = StandardColors.standardBlack,
-      this.disabledTextColor});
+      this.textColor = StandardColors.standardWhite,
+      this.disabledTextColor = StandardColors.standardBlack});
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +41,7 @@ class StandardButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onTap,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             checkWidgetParameter(
               parameter: leadingIcon,
@@ -78,9 +79,11 @@ class StandardButton extends StatelessWidget {
                 left: 0,
               ),
             ),
-            StandardImage(
-                url: image,
-                width: _getIconSize(iconSize, _textScaleFactor, context))
+            checkWidgetParameter(
+                parameter: image,
+                widget: StandardImage(
+                    url: image,
+                    width: _getIconSize(iconSize, _textScaleFactor, context)))
           ],
         ),
       ),
