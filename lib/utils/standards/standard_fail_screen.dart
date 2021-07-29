@@ -5,7 +5,7 @@ import '../../utils/standards/standard_image.dart';
 import '../../utils/standards/style_standards.dart';
 import '../constants.dart';
 
-class FailedRequestScreen extends StatelessWidget {
+class StandardFailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
