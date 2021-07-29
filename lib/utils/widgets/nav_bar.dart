@@ -14,7 +14,7 @@ class NavBar extends StatelessWidget {
       },
       builder: (context, store, state, dispatch, int? model, child) {
         return BottomNavigationBar(
-          backgroundColor: Colors.white,
+          backgroundColor: StandardColors.standardWhite,
           onTap: (index) =>
               dispatch(SwitchCurrentNavigationIndexAction(index: index)),
           currentIndex: state.homeState.bottomNavigationIndex,

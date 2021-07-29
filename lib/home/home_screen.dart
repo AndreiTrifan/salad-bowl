@@ -2,8 +2,8 @@ import 'package:async_redux/async_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_for_redux/provider_for_redux.dart';
 
+import '../utils/widgets/app_layout_widget.dart';
 import '../redux/app_state.dart';
-import '../utils/widgets/nav_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -22,9 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildContent(BuildContext context, Store<AppState> store,
       AppState state, Dispatch dispatch, Widget? child) {
-    return Scaffold(
-      body: _getCurrentScreen(state.homeState.bottomNavigationIndex),
-      bottomNavigationBar: NavBar(),
+    return AppLayoutWidget(
+      pageTitle: 'uWin',
+      child: _getCurrentScreen(state.homeState.bottomNavigationIndex),
     );
   }
 
