@@ -19,24 +19,24 @@ class NavBar extends StatelessWidget {
               dispatch(SwitchCurrentNavigationIndexAction(index: index)),
           currentIndex: state.homeState.bottomNavigationIndex,
           unselectedItemColor: StandardColors.standardDarkGrey,
-          selectedItemColor: StandardColors.standardLightBlue,
+          selectedItemColor: StandardColors.standardRed,
           selectedLabelStyle: StandardTextStyles.caption1.regular
-              .copyWith(color: StandardColors.standardLightBlue),
+              .copyWith(color: StandardColors.standardRed),
           unselectedLabelStyle: StandardTextStyles.caption1.regular
               .copyWith(color: StandardColors.standardDarkGrey),
           iconSize: StandardIconSize(context).normalIcon,
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: Icon(Icons.home, size: StandardIconSize(context).normalIcon,),
                 label: 'Acasă'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.event),
+                icon: Icon(Icons.event, size: StandardIconSize(context).normalIcon,),
                 label: 'Info'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.list_rounded),
+                icon: Icon(Icons.list_rounded, size: StandardIconSize(context).normalIcon,),
                 label: 'Proiecte'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings),
+                icon: Icon(Icons.settings, size: StandardIconSize(context).normalIcon,),
                 label: 'Setări'),
           ],
         );

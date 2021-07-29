@@ -16,6 +16,7 @@ class AppLayoutWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).textScaleFactor);
     return Scaffold(
       body: SafeArea(
         child: Container(
