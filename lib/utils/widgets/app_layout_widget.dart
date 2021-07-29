@@ -27,6 +27,7 @@ class AppLayoutWidget extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: StandardColors.standardWhite,
         title: Text(
           pageTitle,
