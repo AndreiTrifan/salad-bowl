@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:provider_for_redux/provider_for_redux.dart';
 
 import './home/home_screen.dart';
-import './init/init_screen.dart';
 import './redux/app_state.dart';
 import './redux/store.dart';
 import './utils/constants.dart';
+import 'init/init_screen.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
         title: 'Uwin',
         theme: ThemeData(
           primarySwatch: Colors.blue,
+          // textTheme: TextTheme(bodyText1: StandardTextStyles.body)
         ),
         routes: {
           Routes.coupons: (context) => Center(child: Text('Coupons')),

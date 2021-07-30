@@ -17,18 +17,32 @@ class StandardTextStylesModel {
     required this.textStyle,
   }) {
     light = textStyle.copyWith(
-        fontWeight: FontWeight.w300, fontStyle: FontStyle.normal, color: StandardColors.standardBlack);
+        fontWeight: FontWeight.w300,
+        fontStyle: FontStyle.normal,
+        color: StandardColors.standardBlack);
     medium = textStyle.copyWith(
-        fontWeight: FontWeight.w500, fontStyle: FontStyle.normal, color: StandardColors.standardBlack);
+        fontWeight: FontWeight.w500,
+        fontStyle: FontStyle.normal,
+        color: StandardColors.standardBlack);
     mediumItalic = textStyle.copyWith(
-        fontWeight: FontWeight.w500, fontStyle: FontStyle.italic, color: StandardColors.standardBlack);
+        fontWeight: FontWeight.w500,
+        fontStyle: FontStyle.italic,
+        color: StandardColors.standardBlack);
     regular = textStyle.copyWith(
-        fontWeight: FontWeight.normal, fontStyle: FontStyle.normal, color: StandardColors.standardBlack);
+        fontWeight: FontWeight.normal,
+        fontStyle: FontStyle.normal,
+        color: StandardColors.standardBlack);
     semibold = textStyle.copyWith(
-        fontWeight: FontWeight.w600, fontStyle: FontStyle.normal, color: StandardColors.standardBlack);
+        fontWeight: FontWeight.w600,
+        fontStyle: FontStyle.normal,
+        color: StandardColors.standardBlack);
     semiboldItalic = textStyle.copyWith(
-        fontWeight: FontWeight.w600, fontStyle: FontStyle.italic, color: StandardColors.standardBlack);
+        fontWeight: FontWeight.w600,
+        fontStyle: FontStyle.italic,
+        color: StandardColors.standardBlack);
     bold = textStyle.copyWith(
-        fontWeight: FontWeight.bold, fontStyle: FontStyle.normal, color: StandardColors.standardBlack);
+        fontWeight: FontWeight.bold,
+        fontStyle: FontStyle.normal,
+        color: StandardColors.standardBlack);
   }
 }

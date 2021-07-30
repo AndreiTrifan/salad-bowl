@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'style_standards.dart';
 
 class StandardMoreInfoArrow extends StatelessWidget {
-
   const StandardMoreInfoArrow({Key? key, required this.moreInfo})
       : super(key: key);
 
@@ -25,7 +24,7 @@ class StandardRightArrow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Icon(
       Icons.keyboard_arrow_right,
-          size: StandardIconSize(context).rightArrowSize,
+      size: StandardIconSize(context).rightArrowSize,
     );
   }
 }
