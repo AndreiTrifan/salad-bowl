@@ -1,54 +1,74 @@
 import 'package:flutter/material.dart';
-import 'package:u_win/utils/standards/standard_arrows.dart';
-import 'package:u_win/utils/standards/standard_image.dart';
-import 'package:u_win/utils/standards/style_standards.dart';
+
+import './standard_arrows.dart';
+import './standard_icon.dart';
+import './standard_image.dart';
+import './style_standards.dart';
 
 class StandardListTile extends StatelessWidget {
-  final StandardImage? left;
+  final dynamic leading;
   final String title;
-  var right;
+  dynamic trailing;
   final Function onTap;
 
   StandardListTile({
     required this.title,
-    this.left,
-    this.right,
+    this.leading,
+    this.trailing,
     required this.onTap,
   });
 
+  bool _validURL(String url) {
+    if (Uri.parse(url).isAbsolute) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).textScaleFactor);
-    return Card(
-      elevation: 1,
-      child: ListTile(
-        leading: Align(
-            alignment: Alignment(StandardSpacing.horizontalSpacing, 0),
-            child: left),
-        title: Align(
-          alignment: Alignment(StandardSpacing.horizontalSpacing, 0),
-          child: Text(
-            title,
-            style: StandardTextStyles.callout.regular,
-          ),
-        ),
-        trailing: Align(
-          alignment: Alignment(StandardSpacing.horizontalSpacing, 0),
-          child: (() {
-            if (right == null) {
-              return StandardRightArrow();
-            } else if (right is String) {
-              return Text(
-                right,
-                style: StandardTextStyles.callout.regular,
-              );
-            }
+    double smallIconSize = StandardIconSize(context).smallIcon;
 
-            return right;
-          }()),
+    _dynamicIs(dynamic element) {
+      if (element == null) {
+        return StandardRightArrow();
+      } else if (element is String) {
+        if (_validURL(element)) {
+          return StandardImage(
+            url: element,
+            width: smallIconSize,
+            height: smallIconSize,
+          );
+        } else {
+          return Text(
+            element,
+            style: StandardTextStyles.callout.regular,
+          );
+        }
+      } else if (element is Icon) {
+        return StandardIcon(icon: element);
+      }
+    }
+
+    return ListTile(
+      leading: Align(
+          alignment: Alignment(StandardSpacing.horizontalSpacing, 0),
+          child: leading == null ? leading : _dynamicIs(leading)),
+      title: Align(
+        alignment: Alignment(StandardSpacing.horizontalSpacing, 0),
+        child: Text(
+          title,
+          style: StandardTextStyles.callout.regular,
         ),
-        onTap: () => onTap,
       ),
+      trailing: Align(
+        alignment: Alignment(0, 0),
+        child: (() {
+          _dynamicIs(trailing);
+        }()),
+      ),
+      onTap: () => onTap,
     );
   }
 }
